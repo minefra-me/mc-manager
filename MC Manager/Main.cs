@@ -12,10 +12,17 @@ namespace MC_Manager
         string username = "";
         string server = "";
         string configFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".\\MC Manager\\lastconfig.cfg");
-        PrivateKeyFile[] privKey = { new PrivateKeyFile(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".\\.ssh\\id_rsa")) };
+        PrivateKeyFile[] privKey = null;
         public Main()
         {
             InitializeComponent();
+            try
+            {
+                privKey = { new PrivateKeyFile(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".\\.ssh\\id_rsa")) };
+            } catch
+            {
+                DarkMessageBox.ShowError("Cannot load private key. Make sure your key exists in your home folder under .ssh as id_rsa or your PC supports SSH over RSA.", "Error", DarkDialogButton.Ok);
+            }
             Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MC Manager"));
             if (File.Exists(configFile))
             {
