@@ -19,23 +19,7 @@ namespace MC_Manager
             Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MC Manager"));
             if (File.Exists(configFile))
             {
-                try
-                {
-                    bool startedWithArgs = false;
-                    string[] args = Environment.GetCommandLineArgs();
-                    try
-                    {
-                        var x = args[1];
-                        startedWithArgs = true;
-                    } catch { }
-                    if (startedWithArgs)
-                    {
-                        loadConfig(args[1]);
-                    } else
-                    {
-                        loadConfig(File.ReadAllText(configFile));
-                    }
-                } catch { }
+                loadConfig(File.ReadAllText(configFile));
             }
             refreshUI();
             getMotd();
@@ -207,7 +191,7 @@ namespace MC_Manager
                     int logSize = (this.Size.Height / 489) * 20;
                     if (returnCode == 0)
                     {
-                        darkTextBox1.Text = client.RunCommand("cat screen.log | tail -"+logSize.ToString()+" | sed 's/\x1B[@A-Z\\\\\\]^_]\\|\x1B\\[[0-9:;<=>?]*[-!\"#$%&'\"'\"'()*+,.\\/]*[][\\\\@A-Z^_`a-z{|}~]//g'").Result;
+                        darkTextBox1.Text = client.RunCommand("cat screen.log | tail -" + logSize.ToString() + " | sed 's/\x1B[@A-Z\\\\\\]^_]\\|\x1B\\[[0-9:;<=>?]*[-!\"#$%&'\"'\"'()*+,.\\/]*[][\\\\@A-Z^_`a-z{|}~]//g'").Result;
                     }
                     else
                     {

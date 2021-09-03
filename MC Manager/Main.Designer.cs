@@ -101,6 +101,7 @@ namespace MC_Manager
             this.openConfigFileToolStripMenuItem.Name = "openConfigFileToolStripMenuItem";
             this.openConfigFileToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.openConfigFileToolStripMenuItem.Text = "Open config file";
+            this.openConfigFileToolStripMenuItem.Click += new System.EventHandler(this.openconfigFileToolStripMenuItem_Click);
             // 
             // exitApplicationToolStripMenuItem
             // 
@@ -203,6 +204,7 @@ namespace MC_Manager
             // 
             // darkLabel2
             // 
+            this.darkLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.darkLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.darkLabel2.Location = new System.Drawing.Point(645, 1);
             this.darkLabel2.Name = "darkLabel2";

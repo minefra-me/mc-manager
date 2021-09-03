@@ -32,6 +32,7 @@ OutputBaseFilename=mcmanager_setup
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
+ArchitecturesInstallIn64BitMode=x64
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -40,29 +41,22 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\Dark Mode UI.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\MC Manager.deps.json"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\MC Manager.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\MC Manager.pdb"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\MC Manager.runtimeconfig.dev.json"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\MC Manager.runtimeconfig.json"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\Renci.SshNet.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\SshNet.Security.Cryptography.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\ref\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\{#MyAppExeName}"; DestDir: "{commonpf64}\MC Manager\"; Flags: ignoreversion
+Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\Dark Mode UI.dll"; DestDir: "{commonpf64}\MC Manager\"; Flags: ignoreversion
+Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\MC Manager.deps.json"; DestDir: "{commonpf64}\MC Manager\"; Flags: ignoreversion
+Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\MC Manager.dll"; DestDir: "{commonpf64}\MC Manager\"; Flags: ignoreversion
+Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\MC Manager.pdb"; DestDir: "{commonpf64}\MC Manager\"; Flags: ignoreversion
+Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\MC Manager.runtimeconfig.dev.json"; DestDir: "{commonpf64}\MC Manager\"; Flags: ignoreversion
+Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\MC Manager.runtimeconfig.json"; DestDir: "{commonpf64}\MC Manager\"; Flags: ignoreversion
+Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\Renci.SshNet.dll"; DestDir: "{commonpf64}\MC Manager\"; Flags: ignoreversion
+Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\SshNet.Security.Cryptography.dll"; DestDir: "{commonpf64}\MC Manager\"; Flags: ignoreversion
+Source: "D:\code\MC Manager\MC Manager\bin\Release\net5.0-windows\ref\MC Manager.dll"; DestDir: "{commonpf64}\MC Manager\\ref\"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
-[Registry]
-Root: HKA; Subkey: "Software\Classes\{#MyAppAssocExt}\OpenWithProgids"; ValueType: string; ValueName: "{#MyAppAssocKey}"; ValueData: ""; Flags: uninsdeletevalue
-Root: HKA; Subkey: "Software\Classes\{#MyAppAssocKey}"; ValueType: string; ValueName: ""; ValueData: "{#MyAppAssocName}"; Flags: uninsdeletekey
-Root: HKA; Subkey: "Software\Classes\{#MyAppAssocKey}\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#MyAppExeName},0"
-Root: HKA; Subkey: "Software\Classes\{#MyAppAssocKey}\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"" ""%1"""
-Root: HKA; Subkey: "Software\Classes\Applications\{#MyAppExeName}\SupportedTypes"; ValueType: string; ValueName: ".myp"; ValueData: ""
-
 [Icons]
-Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
-Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
+Name: "{autoprograms}\{#MyAppName}"; Filename: "{commonpf64}\MC Manager\\{#MyAppExeName}"
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{commonpf64}\MC Manager\\{#MyAppExeName}"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
+Filename: "{commonpf64}\MC Manager\\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 
