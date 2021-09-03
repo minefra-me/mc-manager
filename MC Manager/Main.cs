@@ -22,6 +22,7 @@ namespace MC_Manager
             } catch
             {
                 DarkMessageBox.ShowError("Cannot load private key. Make sure your key exists in your home folder under .ssh as id_rsa or your PC supports SSH over RSA.", "Error", DarkDialogButton.Ok);
+                Environment.Exit(0);
             }
             Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MC Manager"));
             if (File.Exists(configFile))
