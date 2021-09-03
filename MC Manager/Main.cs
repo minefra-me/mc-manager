@@ -18,7 +18,7 @@ namespace MC_Manager
             InitializeComponent();
             try
             {
-                privKey = { new PrivateKeyFile(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".\\.ssh\\id_rsa")) };
+                privKey = new PrivateKeyFile[] { new PrivateKeyFile(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".\\.ssh\\id_rsa")) };
             } catch
             {
                 DarkMessageBox.ShowError("Cannot load private key. Make sure your key exists in your home folder under .ssh as id_rsa or your PC supports SSH over RSA.", "Error", DarkDialogButton.Ok);
