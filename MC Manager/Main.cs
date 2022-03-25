@@ -4,11 +4,20 @@ using System;
 using Renci.SshNet;
 using System.IO;
 using DarkUI.Controls;
+using System.Runtime.InteropServices;
 
 namespace MC_Manager
 {
     public partial class Main : DarkForm
     {
+        [DllImport("DwmApi")]
+        private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, int[] attrValue, int attrSize);
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            if (DwmSetWindowAttribute(Handle, 19, new[] { 1 }, 4) != 0)
+                DwmSetWindowAttribute(Handle, 20, new[] { 1 }, 4);
+        }
+
         string username = "";
         string server = "";
         string configFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".\\MC Manager\\lastconfig.cfg");

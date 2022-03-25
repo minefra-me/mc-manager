@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <RootNamespace>MC_Manager</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>Cog_Block.ico</ApplicationIcon>
